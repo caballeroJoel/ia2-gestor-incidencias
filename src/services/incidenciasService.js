@@ -5,7 +5,7 @@ const incidencias = [
         descripcion: "Reparar la fuente de alimentación del equipo de Carlos",
         estado: "abierto",
         prioridad: "alta",
-        fechaCreacion: "23/11/2026T10:00:00.000Z",
+        fechaCreacion: "2026-11-23T10:00:00.000Z",
         asignado: "Joel Caballero"
     }
 ]
