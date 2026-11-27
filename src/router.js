@@ -1,6 +1,6 @@
 import { Listado } from './components/Listado.js';
+import { Detalle } from './components/Detalle.js';
 import { obtenerIncidencias, obtenerIncidencia } from './services/incidenciasService.js';
-import { escaparHtml } from './utils.js';
 
 export function resolverRuta(hash) {
   const ruta = hash.slice(2).split('/');
@@ -11,7 +11,7 @@ export function resolverRuta(hash) {
 
   if (ruta.length === 2 && ruta[0] === 'incidencias') {
     const id = decodeURIComponent(ruta[1]);
-    return `<p>Detalle de ${escaparHtml(id)}</p>`;
+    return Detalle({ incidencia: obtenerIncidencia(id) });
   }
 
   return `
