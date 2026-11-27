@@ -1,7 +1,16 @@
 import './styles.css'
-import { obtenerIncidencias } from './services/incidenciasService.js';
-import { Listado } from './components/Listado.js';
+import { resolverRuta } from './router.js';
 
 const app = document.querySelector("#app");
 
-app.innerHTML = Listado({incidencias: obtenerIncidencias()});
+function render() {
+    if(!location.hash) {
+        location.hash = '/incidencias';
+        return;
+    }
+    app.innerHTML = resolverRuta(location.hash);
+}
+
+window.addEventListener('hashchange', render);
+render();
+
