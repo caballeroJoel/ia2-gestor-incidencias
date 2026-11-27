@@ -14,3 +14,9 @@ const incidencias = [
 export function obtenerIncidencias() {
     return structuredClone(incidencias);
 }
+
+export function obtenerIncidencia(id) {
+    const inc = incidencias.find(inc => inc.id === id) ?? null;
+
+    return structuredClone(inc);
+}

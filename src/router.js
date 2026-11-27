@@ -1,5 +1,5 @@
 import { Listado } from './components/Listado.js';
-import { obtenerIncidencias } from './services/incidenciasService.js';
+import { obtenerIncidencias, obtenerIncidencia } from './services/incidenciasService.js';
 import { escaparHtml } from './utils.js';
 
 export function resolverRuta(hash) {
