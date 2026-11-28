@@ -14,6 +14,11 @@ export function resolverRuta(hash) {
     return Formulario({});
   }
 
+  if (ruta.length === 3 && ruta[0] === 'incidencias' && ruta[2] === 'editar') {
+    const inc = obtenerIncidencia(decodeURIComponent(ruta[1]));
+    return inc ? Formulario({ incidencia: inc }) : Detalle({ incidencia: null });
+  }
+
   if (ruta.length === 2 && ruta[0] === 'incidencias') {
     const id = decodeURIComponent(ruta[1]);
     return Detalle({ incidencia: obtenerIncidencia(id) });

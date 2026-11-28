@@ -1,7 +1,8 @@
 import './styles.css'
 import { resolverRuta } from './router.js';
-import { crearIncidencia, validarIncidencia } from './services/incidenciasService.js';
+import { crearIncidencia, validarIncidencia, actualizarIncidencia } from './services/incidenciasService.js';
 import { Formulario } from './components/Formulario.js';
+import { Detalle } from './components/Detalle.js';
 
 const app = document.querySelector("#app");
 
@@ -28,8 +29,13 @@ app.addEventListener('submit', (e) => {
         return;
     }
 
-    const creada = crearIncidencia(datos);
+    const guardada = !datos.id ? crearIncidencia(datos) : actualizarIncidencia(datos.id, datos);
 
-    location.hash = `/incidencias/${encodeURIComponent(creada.id)}`;
+    if(guardada === null) {
+        app.innerHTML = Detalle({ incidencia: null });
+        return;
+    }
+
+    location.hash = `/incidencias/${encodeURIComponent(guardada.id)}`;
 
 });

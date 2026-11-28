@@ -31,8 +31,9 @@ export function Formulario({ incidencia = {}, errores = {} }) {
             </select>
             <p>${errores.prioridad ?? ''}</p>
 
-            <input type="submit" value="Crear Incidencia">
-            <a href="#/incidencias">Cancelar</a>
+            <input type="hidden" name="id" value="${escaparHtml(incidencia.id ?? '')}">
+            <input type="submit" value="${!incidencia.id ? "Crear incidencia" : "Guardar cambios"}">
+            <a href="#/incidencias${!incidencia.id ? "" : "/"+encodeURIComponent(incidencia.id)}">Cancelar</a>
             
         </form>
     `;

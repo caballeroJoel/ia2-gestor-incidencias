@@ -55,3 +55,23 @@ export function validarIncidencia(datos) {
 
     return errores;
 }
+
+export function actualizarIncidencia(id, datos) {
+    const indice = incidencias.findIndex(i => i.id === id);
+
+    if(indice === -1) return null;
+
+    const actualizada = {
+        id: id,
+        titulo: datos.titulo,
+        descripcion: datos.descripcion,
+        asignado: datos.asignado,
+        estado: datos.estado,
+        prioridad: datos.prioridad,
+        fechaCreacion: incidencias[indice].fechaCreacion
+    };
+
+    incidencias[indice] = actualizada;
+
+    return structuredClone(actualizada);
+}
