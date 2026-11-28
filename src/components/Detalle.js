@@ -25,6 +25,7 @@ export function Detalle({ incidencia }) {
             <dd>${escaparHtml(incidencia.asignado)}</dd>
         </dl>
 
+        <a href="#/incidencias/${encodeURIComponent(incidencia.id)}/editar">Editar incidencia</a>
         <a href="#/incidencias">Volver al listado</a>
     `;
 
