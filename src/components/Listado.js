@@ -6,7 +6,7 @@ export function Listado({ incidencias }) {
     const inci = incidencias.map(
         (inc) => `
             <tr>
-                <td>${escaparHtml(inc.titulo)}</td>
+                <td><a href="#/incidencias/${encodeURIComponent(inc.id)}">${escaparHtml(inc.titulo)}</a></td>
                 <td>${escaparHtml(inc.estado)}</td>
                 <td>${escaparHtml(inc.prioridad)}</td>
                 <td>${escaparHtml(inc.asignado)}</td>
